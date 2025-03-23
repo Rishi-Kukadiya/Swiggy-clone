@@ -25,7 +25,7 @@
     border-radius: 10px;
 }
 
-.food-item {
+.food-item1 {
     flex: 0 0 auto;
     width: 180px; /* Smaller cards */
     height: 180px;
@@ -36,7 +36,7 @@
     scroll-snap-align: center;
 }
 
-.food-item img {
+.food-item1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -44,7 +44,7 @@
 }
 
 /* Hover Effect */
-.food-item:hover {
+.food-item1:hover {
     transform: scale(1.05);
 }
 
@@ -55,14 +55,14 @@
         padding: 10px;
     }
 
-    .food-item {
+    .food-item1 {
         width: 140px;
         height: 140px;
     }
 }
 
 @media (max-width: 480px) {
-    .food-item {
+    .food-item1 {
         width: 120px;
         height: 120px;
     }

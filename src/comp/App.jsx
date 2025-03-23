@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./Header";
-import Food from "./Food";
-import Dine from "./Dine";
-import Footer from "./Footer";
-import Scan_to_download from "./scan_to_download";
+import Home from "./Home";
+import Fooddeliverycd from "./foodeliverycd";
+import { BrowserRouter, Routes, Route} from "react-router";
 function App(){
     return(
         <>
-          <Header></Header>
-          <Food></Food>
-          <Dine></Dine>
-          <Scan_to_download></Scan_to_download>
-          <Footer></Footer>
+        <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Home></Home>}></Route>
+              <Route path="/resturant" element={<Fooddeliverycd></Fooddeliverycd>}></Route>
+          </Routes>
+        </BrowserRouter>
         </>
     )
 }

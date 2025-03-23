@@ -6,7 +6,7 @@ export default function Food() {
         <div className="foody">
         <div className="food-container">
             {imageGridCards.map((food) => (
-                <div key={food.id} className="food-item">
+                <div key={food.id} className="food-item1">
                     <img
                         src={`https://media-assets.swiggy.com/swiggy/image/upload/${food?.imageId}`}
                         alt="Food Item"
