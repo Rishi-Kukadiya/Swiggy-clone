@@ -8,6 +8,7 @@
     "build": "parcel build"
   },
   "dependencies": {
+    "@fontsource/nunito": "^5.2.5",
     "@tailwindcss/postcss": "^4.0.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
