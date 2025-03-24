@@ -1,0 +1,148 @@
+/* shimmer.css */
+
+/* Base shimmer element */
+.shimmer-element {
+    position: relative;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  
+  .shimmer-element::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Card layout */
+  .shimmer-card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  
+  .shimmer-image {
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  
+  .shimmer-title {
+    margin-bottom: 12px;
+  }
+  
+  .shimmer-text {
+    height: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .shimmer-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  /* List item layout */
+  .shimmer-list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  .shimmer-avatar {
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+  
+  .shimmer-content {
+    flex-grow: 1;
+  }
+  
+  /* Detail page layout */
+  .shimmer-detail {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .shimmer-header {
+    margin-bottom: 24px;
+  }
+  
+  .shimmer-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .shimmer-image-large {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .shimmer-title-large {
+    margin-bottom: 16px;
+  }
+  
+  .shimmer-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .shimmer-section {
+    margin-top: 32px;
+  }
+  
+  .shimmer-subtitle {
+    margin-bottom: 16px;
+  }
+  
+  /* Grid layout */
+  .shimmer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .shimmer-layout {
+      flex-direction: row;
+    }
+    
+    .shimmer-image-large {
+      width: 40%;
+      height: auto;
+    }
+    
+    .shimmer-content-area {
+      width: 60%;
+    }
+  }
