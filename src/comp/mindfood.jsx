@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "../css/mindfood.css"; // Import the CSS file
+import { Link } from "react-router";
+import "../css/mindfood.css"; 
 
 export default function Mindfood() {
   const [mfood, setFood] = useState(null);
@@ -25,6 +26,12 @@ export default function Mindfood() {
     fetchData();
   }, []);
 
+  // Function to extract collection_id from URL
+  const extractCollectionId = (url) => {
+    const match = url.match(/collection_id=(\d+)/);
+    return match ? match[1] : "";
+  };
+
   return (
     <div className="mindfood-section">
       <div className="mindfood-container">
@@ -41,17 +48,22 @@ export default function Mindfood() {
         ) : (
           <div className="food-list-container">
             <div className="food-list">
-              {mfood?.imageGridCards?.info?.map((item) => (
-                <div className="food-item" key={item.id}>
-                  <div className="food-image-container">
-                    <img
-                      src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${item.imageId}`}
-                      alt={item.accessibility?.altText || "Food Item"}
-                      loading="lazy"
-                    />
+              {mfood?.imageGridCards?.info?.map((item) => {
+                const collectionId = extractCollectionId(item.action?.link);
+                return (
+                  <div className="food-item" key={item.id}>
+                    <Link to={`/fooddetails/${collectionId}`}>
+                      <div className="food-image-container">
+                        <img
+                          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${item.imageId}`}
+                          alt={item.accessibility?.altText || "Food Item"}
+                          loading="lazy"
+                        />
+                      </div>
+                    </Link>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
