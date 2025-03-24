@@ -4,6 +4,7 @@ import Home from "./Home";
 import Fooddeliverycd from "./foodeliverycd";
 import { BrowserRouter, Routes, Route} from "react-router";
 import Fooddetails from "./Fooddetails";
+import Dineout from "./dineout";
 function App(){
     return(
         <>
@@ -12,6 +13,7 @@ function App(){
               <Route path="/" element={<Home></Home>}></Route>
               <Route path="/resturant" element={<Fooddeliverycd></Fooddeliverycd>}></Route>
               <Route path="/fooddetails/:collectionId" element={<Fooddetails></Fooddetails>}></Route>
+              <Route path="/dineout" element={<Dineout></Dineout>}></Route>
           </Routes>
         </BrowserRouter>
         </>
