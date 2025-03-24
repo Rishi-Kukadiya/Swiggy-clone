@@ -22,7 +22,7 @@ export default function Fooddetails() {
                 const data = await response.json();
                 setFooddata(data.data.cards);
             } catch (error) {
-                console.error("Error fetching data:", error);
+                // console.error("Error fetching data:", error);
             } finally {
                 setTimeout(() => setLoading(false), 300);
             }

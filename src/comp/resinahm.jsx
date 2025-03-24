@@ -17,7 +17,7 @@ export default function Resinash() {
         const res = await data.json();
         setdata(res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
       } catch (error) {
-        console.error("Error fetching restaurant data:", error);
+        // console.error("Error fetching restaurant data:", error);
       } finally {
         setLoading(false);
       }
