@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Ashdata from "../Utils/ahresdata";
 import "../css/as/Ashcard.css";
+import { Link } from 'react-router';
 export default function Ashcards() {
     const data = Ashdata?.props?.pageProps?.widgetResponse?.success?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     
@@ -9,9 +10,13 @@ export default function Ashcards() {
     
     return (
         <div className="restaurant-cards-container">
-            {restaurants.map((restaurant, index) => (
-                <RestaurantCard key={restaurant?.info?.id || index} restaurant={restaurant?.info} />
-            ))}
+            {restaurants
+    .filter(restaurant => restaurant?.info?.id)
+    .map((restaurant, index) => (
+        <Link key={restaurant.info.id} to={`/dineout/booktable/${restaurant.info.id}`}>
+            <RestaurantCard restaurant={restaurant.info} />
+        </Link>
+    ))}
         </div>
     );
 }
