@@ -5,6 +5,7 @@ import Fooddeliverycd from "./foodeliverycd";
 import { BrowserRouter, Routes, Route} from "react-router";
 import Fooddetails from "./Fooddetails";
 import Dineout from "./dineout";
+import Booktabel from "./Booktable";
 function App(){
     return(
         <>
@@ -14,6 +15,7 @@ function App(){
               <Route path="/resturant" element={<Fooddeliverycd></Fooddeliverycd>}></Route>
               <Route path="/fooddetails/:collectionId" element={<Fooddetails></Fooddetails>}></Route>
               <Route path="/dineout" element={<Dineout></Dineout>}></Route>
+              <Route path="/dineout/booktable/:RestID" element={<Booktabel></Booktabel>}></Route>
           </Routes>
         </BrowserRouter>
         </>
