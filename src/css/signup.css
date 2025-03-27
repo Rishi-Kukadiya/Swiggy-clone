@@ -1,0 +1,129 @@
+/* signup.css - Swiggy Style */
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .signup-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    margin: 2rem;
+  }
+  
+  .signup-container h1 {
+    color: #fc8019; /* Swiggy's orange */
+    text-align: center;
+    margin-bottom: 1.8rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    color: #282c3f; /* Dark gray (Swiggy text color) */
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .form-group input {
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #d4d5d9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #fc8019;
+    box-shadow: 0 0 0 2px rgba(252, 128, 25, 0.2);
+  }
+  
+  .form-group input.error-input {
+    border-color: #ff6b6b;
+  }
+  
+  .form-group input.error-input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+  }
+  
+  .error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+  
+  /* Button (Swiggy Orange Style) */
+  .signup-btn {
+    background-color: #fc8019;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .signup-btn:hover {
+    background-color: #e86a0a; /* Darker orange on hover */
+  }
+  
+  .signup-btn:disabled {
+    background-color: #d4d5d9;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .signup-container {
+      padding: 1.8rem;
+      margin: 1rem;
+      width: 90%;
+    }
+    
+    .signup-container h1 {
+      font-size: 1.6rem;
+    }
+    
+    .form-group input {
+      padding: 0.8rem 1rem;
+    }
+    
+    .signup-btn {
+      padding: 0.9rem;
+    }
+  }

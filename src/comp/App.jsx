@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route} from "react-router";
 import Fooddetails from "./Fooddetails";
 import Dineout from "./dineout";
 import Booktabel from "./Booktable";
+import Signup from "./Signup";
 function App(){
     return(
         <>
@@ -16,6 +17,7 @@ function App(){
               <Route path="/fooddetails/:collectionId" element={<Fooddetails></Fooddetails>}></Route>
               <Route path="/dineout" element={<Dineout></Dineout>}></Route>
               <Route path="/dineout/booktable/:RestID" element={<Booktabel></Booktabel>}></Route>
+              <Route path="/Signup" element={<Signup />} />
           </Routes>
         </BrowserRouter>
         </>

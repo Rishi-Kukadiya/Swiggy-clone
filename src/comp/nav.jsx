@@ -1,3 +1,4 @@
+import {Link} from 'react-router';
 export default function Navbar(){
     return(
         <>
@@ -14,7 +15,11 @@ export default function Navbar(){
                 <a href="#" className="app-link">
                     Get the app <i className="bi bi-arrow-up-right-circle-fill"></i>
                 </a>
-                <button className="sign-in-btn">Sign in</button>
+                <Link to="/Signup">
+          <button  className="sign-in-btn">
+            Sign in
+          </button>
+        </Link>
             </nav>
         </header>
         </>
