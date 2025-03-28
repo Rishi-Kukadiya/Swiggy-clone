@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
 import Navbar from "./nav";
 import { GridShimmer } from "./shimming";
 import Footer from "./Footer";
@@ -10,6 +12,7 @@ export default function Fooddetails() {
   const { collectionId } = useParams();
   const [fooddata, setFooddata] = useState(null);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
   const proxyServer = "https://cors-anywhere.herokuapp.com/";
   const API_URL = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.02760&lng=72.58710&collection=${collectionId}&tags=layout_CCS_Poha&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
@@ -37,10 +40,17 @@ export default function Fooddetails() {
   };
 
   const handleAddToCart = (restaurantInfo) => {
-    // Implement your add to cart logic here
-    console.log("Added to cart:", restaurantInfo.name);
-    // You might want to update a cart state or make an API call
-  };
+    dispatch(addToCart({
+            id: restaurantInfo.id,
+            name: restaurantInfo.name,
+            price: parseInt(restaurantInfo.costForTwo.match(/\d+/)[0]) / 2, // Assuming costForTwo / 2 for single price
+            image: `https://media-assets.swiggy.com/swiggy/image/upload/${restaurantInfo.cloudinaryImageId}`,
+            quantity: 1
+          }));
+          alert(`${restaurantInfo.name} added to cart!`);
+        };
+  
+
 
   if (loading) {
     return (
@@ -52,7 +62,6 @@ export default function Fooddetails() {
       </>
     );
   }
-
   if (!fooddata || fooddata.length === 0) {
     return (
       <>
@@ -177,3 +186,106 @@ export default function Fooddetails() {
     </>
   );
 }
+
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router";
+// import { useDispatch } from 'react-redux';
+// import { addToCart } from '../redux/cartSlice';
+// import Navbar from "./nav";
+// import { GridShimmer } from "./shimming";
+// import Footer from "./Footer";
+// import Scan from "./scan_to_download";
+// import "../css/fooddetails.css";
+
+// export default function Fooddetails() {
+//   const { collectionId } = useParams();
+//   const [fooddata, setFooddata] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const dispatch = useDispatch();
+
+//   const proxyServer = "https://cors-anywhere.herokuapp.com/";
+//   const API_URL = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.02760&lng=72.58710&collection=${collectionId}`;
+
+//   useEffect(() => {
+//     async function fetchdata() {
+//       setLoading(true);
+//       try {
+//         const response = await fetch(proxyServer + API_URL);
+//         const data = await response.json();
+//         setFooddata(data.data.cards);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//       } finally {
+//         setTimeout(() => setLoading(false), 300);
+//       }
+//     }
+//     fetchdata();
+//   }, [collectionId]);
+
+//   const getRatingClass = (rating) => {
+//     if (rating >= 4) return "good";
+//     if (rating >= 3) return "average";
+//     return "poor";
+//   };
+
+//   const handleAddToCart = (restaurantInfo) => {
+//     dispatch(addToCart({
+//       id: restaurantInfo.id,
+//       name: restaurantInfo.name,
+//       price: parseInt(restaurantInfo.costForTwo.match(/\d+/)[0]) / 2, // Assuming costForTwo / 2 for single price
+//       image: `https://media-assets.swiggy.com/swiggy/image/upload/${restaurantInfo.cloudinaryImageId}`,
+//       quantity: 1
+//     }));
+//     alert(`${restaurantInfo.name} added to cart!`);
+//   };
+
+//   if (loading) {
+//     return (
+//       <>
+//         <Navbar />
+//         <div className="fd-container">
+//           <GridShimmer />
+//         </div>
+//       </>
+//     );
+//   }
+
+//   if (!fooddata || fooddata.length === 0) {
+//     return (
+//       <>
+//         <Navbar />
+//         <div className="fd-container no-data">No Restaurants Found</div>
+//         <Scan />
+//         <Footer />
+//       </>
+//     );
+//   }
+
+//   return (
+//     <>
+//       <Navbar />
+//       <div className="fd-container">
+//         <h1>{fooddata[0]?.card?.card?.title || "Food Collection"}</h1>
+//         <h2>{fooddata[0]?.card?.card?.description || ""}</h2>
+        
+//         {fooddata?.slice(3)?.map((restaurant, index) => {
+//           const info = restaurant?.card?.card?.info;
+//           if (!info) return null;
+//           return (
+//             <div key={info.id || index} className="fd-restaurant-card">
+//               <img src={`https://media-assets.swiggy.com/swiggy/image/upload/${info.cloudinaryImageId}`} alt={info.name} />
+//               <h2>{info.name}</h2>
+//               <p>{info.cuisines?.join(", ")}</p>
+//               <p className={`fd-rating-badge ${getRatingClass(info.avgRating)}`}>⭐ {info.avgRating} ({info.totalRatingsString})</p>
+//               <p>{info.costForTwo}</p>
+//               <button onClick={() => handleAddToCart(info)}>Add to Cart</button>
+//             </div>
+//           );
+//         })}
+//       </div>
+//       <Scan />
+//       <Footer />
+//     </>
+//   );
+// }
