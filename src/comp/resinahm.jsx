@@ -26,6 +26,7 @@ export default function Resinash() {
     fetchdata();
   }, []);
 
+  console.log(resdata)
   return (
     <div className="restaurant-section">
       <h2 className="section-title">Top restaurant chains in Ahmedabad</h2>

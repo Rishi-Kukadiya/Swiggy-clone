@@ -36,6 +36,12 @@ export default function Fooddetails() {
     return "poor";
   };
 
+  const handleAddToCart = (restaurantInfo) => {
+    // Implement your add to cart logic here
+    console.log("Added to cart:", restaurantInfo.name);
+    // You might want to update a cart state or make an API call
+  };
+
   if (loading) {
     return (
       <>
@@ -52,21 +58,21 @@ export default function Fooddetails() {
       <>
         <Navbar />
         <div className="fd-container flex flex-col items-center justify-center h-80 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg shadow-lg p-8 border border-gray-300 mt-5 mb-5">
-  <div className="text-center animate-fadeIn">
-    <div className="text-6xl mb-4 animate-bounce">🍽️</div>
-    <h2 className="text-3xl font-bold text-gray-900">Oops! No Restaurants Found</h2>
-    <p className="text-gray-600 mt-2 leading-relaxed max-w-md">
-      We couldn't find any restaurants in this collection at the moment. 
-      You might want to explore other options or refresh the page.
-    </p>
-    <button 
-      className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 p-5"
-      onClick={() => window.location.reload()}
-    >
-       Refresh Page
-    </button>
-  </div>
-</div>
+          <div className="text-center animate-fadeIn">
+            <div className="text-6xl mb-4 animate-bounce">🍽️</div>
+            <h2 className="text-3xl font-bold text-gray-900">Oops! No Restaurants Found</h2>
+            <p className="text-gray-600 mt-2 leading-relaxed max-w-md">
+              We couldn't find any restaurants in this collection at the moment.
+              You might want to explore other options or refresh the page.
+            </p>
+            <button
+              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 p-5"
+              onClick={() => window.location.reload()}
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
 
         <Scan></Scan>
         <Footer></Footer>
@@ -154,6 +160,12 @@ export default function Fooddetails() {
                         {restaurant.card.card.info.sla?.lastMileTravelString}
                       </p>
                     </div>
+                    <button
+                      className="fd-add-to-cart-button"
+                      onClick={() => handleAddToCart(restaurant.card.card.info)}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               )

@@ -2118,3 +2118,5 @@ export const dineoutRestaurants = [{
         "type": "DEEPLINK"
     }
 }]
+
+export default dineoutRestaurants;

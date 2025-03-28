@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { dineoutRestaurants } from "../Utils/Dinedata";
+import {Link} from "react-router";
 import "../css/dine.css"; 
 
 export default function Dine() {
@@ -37,6 +38,7 @@ export default function Dine() {
         
         <div ref={scrollContainerRef} className="restaurant-carousel">
           {dineoutRestaurants.map((dine) => (
+            <Link to={`/dineout/${dine?.info?.id}`} key={dine?.info?.id}>
             <div key={dine.info.id} className="restaurant-card">
               {/* Image and badges section */}
               <div className="card-image-container">
@@ -125,6 +127,7 @@ export default function Dine() {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
         

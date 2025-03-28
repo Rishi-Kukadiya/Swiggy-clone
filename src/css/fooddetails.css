@@ -185,6 +185,34 @@
     background: linear-gradient(90deg, #f6ad55, #f687b3);
     border-radius: 3px;
 }
+/* fooddetails.css */
+
+/* Existing CSS remains unchanged */
+
+/* Add to Cart Button Styles */
+.fd-add-to-cart-button {
+    background-color: #ff4500; /* Green background */
+    color: white; /* White text */
+    padding: 0.75rem 1rem; /* Padding around text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: 500; /* Semi-bold text */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    width: 100%; /* Make the button take full width of its container */
+    margin-top: 0.75rem; /* Add some space above the button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .fd-add-to-cart-button:hover {
+    background-color: #ff4500; /* Darker green on hover */
+  }
+  
+  .fd-add-to-cart-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5); /* Add a custom focus outline */
+  }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

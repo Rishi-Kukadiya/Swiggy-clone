@@ -7,6 +7,7 @@ import Fooddetails from "./Fooddetails";
 import Dineout from "./dineout";
 import Booktabel from "./Booktable";
 import Signup from "./Signup";
+import DisDineout from "./DiscoverDineout";
 function App(){
     return(
         <>
@@ -17,6 +18,7 @@ function App(){
               <Route path="/fooddetails/:collectionId" element={<Fooddetails></Fooddetails>}></Route>
               <Route path="/dineout" element={<Dineout></Dineout>}></Route>
               <Route path="/dineout/booktable/:RestID" element={<Booktabel></Booktabel>}></Route>
+              <Route path="/dineout/:RestID" element={<DisDineout></DisDineout>}></Route>
               <Route path="/Signup" element={<Signup />} />
           </Routes>
         </BrowserRouter>
